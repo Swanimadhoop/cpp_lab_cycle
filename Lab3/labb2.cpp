@@ -16,7 +16,7 @@ class calculator
     }
     void display_results(void)
     {
-        cout<<"The numbers are "<<num1<<num2;
+        cout<<"The numbers are "<<num1<<" , "<<num2<<'\n';
         cout<<num1<<"+"<<num2<<"="<<add()<<'\n';
         cout<<num1<<"-"<<num2<<"="<<subtract()<<'\n';
         cout<<num1<<"*"<<num2<<"="<<multiply()<<'\n';
@@ -29,7 +29,8 @@ class calculator
 };
 int main()
 {
-    int i1,i2,f1,f2;
+    int i1,i2;
+    float f1,f2;
 
     cout<<"Enter two integer value to do operations: ";
     cin>>i1>>i2;
