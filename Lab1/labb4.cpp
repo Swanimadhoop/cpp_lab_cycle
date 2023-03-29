@@ -38,7 +38,7 @@ void strings::concatenate(strings a, strings b)
     delete name;
     name=new char[length+1];
     strcpy(name, a.name);
-    strcpy(name, b.name);
+    strcat(name, b.name);
 }
 void strings::compare(strings a, strings b)
 {

@@ -46,7 +46,7 @@ int main()
     T1.put_time();
 
     T2.get_time(h2, m2, s2);
-    cout<<"Time 1"<<'\n';
+    cout<<"Time 2"<<'\n';
     T2.put_time();
 
     T3.sum(T1, T2);
