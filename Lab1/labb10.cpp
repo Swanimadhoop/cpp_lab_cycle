@@ -7,6 +7,7 @@ class store
     private:
     int code;
     int sum;
+    int n;
     string name[50];
     float price[50];
     int quantity[50];
@@ -20,7 +21,6 @@ class store
 
 void store::add()
 {
-    int n;
     cout<<"enter the number of items to be added: ";
     cin>>n;
     for(int i=0;i<n;i++)
