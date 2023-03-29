@@ -132,7 +132,7 @@ int main()
     {
         matrix m3(r1,c1);
         m3.matrix_add(m1, m2);
-        m3.print_element(r1, c1);
+        m3.display_matrix(r1, c1);
     }
     else
     {
@@ -145,12 +145,12 @@ int main()
     cout<<"Transpose of Matrix 1: "<<"\n";
     matrix m4(c1, r1);
     m4.matrix_transpose(m1);
-    m4.print_element(c1, r1);
+    m4.display_matrix(c1, r1);
 
     cout<<"Transpose of Matrix 2: "<<"\n";
     matrix m5(c2, r2);
     m5.matrix_transpose(m2);
-    m5.print_element(c1, r1); 
+    m5.display_matrix(c1, r1); 
 
     cout<<"******* MATRIX TRACE *******"<<"\n";
     
