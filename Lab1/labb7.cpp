@@ -119,4 +119,48 @@ int main()
     cout<<"Enter the no of rows and columns of MATRIX 2: ";
     cin>>r1>>c2;
 
+    matrix m1(r1,c1);
+    m1.create(r1,c1);
+    m1.display_matrix(r1,c1);
+
+    matrix m2(r2,c2);
+    m2.create(r2,c2);
+    m2.display_matrix(r2,c2);
+
+    cout<<"ADDITION"<<'\n';
+    if(r1==r2 && c1==c2)
+    {
+        matrix m3(r1,c1);
+        m3.matrix_add(m1, m2);
+        m3.print_element(r1, c1);
+    }
+    else
+    {
+        cout<<"Matrix addition is not possble fo the given matrices!!"<<"\n";
+    }
+
+    
+    cout<<"******* MATRIX TRANSPOSE *******"<<"\n";
+
+    cout<<"Transpose of Matrix 1: "<<"\n";
+    matrix m4(c1, r1);
+    m4.matrix_transpose(m1);
+    m4.print_element(c1, r1);
+
+    cout<<"Transpose of Matrix 2: "<<"\n";
+    matrix m5(c2, r2);
+    m5.matrix_transpose(m2);
+    m5.print_element(c1, r1); 
+
+    cout<<"******* MATRIX TRACE *******"<<"\n";
+    
+    int m1_trace, m2_trace;
+    m1_trace=m1.matrix_trace();
+    m2_trace=m2.matrix_trace();
+
+    cout<<"Trace of Matrix 1= "<<m1_trace<<"\n";
+    cout<<"Trace of Matrix 2= "<<m2_trace<<"\n";
+    
+    return 0;
+
 }
