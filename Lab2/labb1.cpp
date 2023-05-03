@@ -95,26 +95,32 @@ bool Vector::operator>=(Vector &a) {
 }
 
 int main() {
-    int x[3], y[3];
+    char choice;
+    do{
+        int x[3], y[3];
 
-    cout<<"Enter the values of vector x: ";
-    for(int i=0; i<3; i++) {
-        cin>>x[i];
-    }
-    Vector v1(x);
+        cout<<"Enter the values of vector x: ";
+        for(int i=0; i<3; i++) {
+            cin>>x[i];
+        }
+        Vector v1(x);
 
-    cout<<"Enter the values of vector y: ";
-    for(int i=0; i<3; i++) {
-        cin>>y[i];
-    }
-    Vector v2(y);
+        cout<<"Enter the values of vector y: ";
+        for(int i=0; i<3; i++) {
+            cin>>y[i];
+        }
+        Vector v2(y);
 
-    cout<<"v1==v2: "<<(v1==v2)<<'\n';
-    cout<<"v1!=v2: "<<(v1!=v2)<<'\n';
-    cout<<"v1<v2: "<<(v1<v2)<<'\n';
-    cout<<"v1<=v2: "<<(v1<=v2)<<'\n';
-    cout<<"v1>v2: "<<(v1>v2)<<'\n';
-    cout<<"v1>=v2: "<<(v1>=v2)<<'\n';
+        cout<<"v1==v2: "<<(v1==v2 ? "true":"false")<<'\n';
+        cout<<"v1!=v2: "<<(v1!=v2 ? "true":"false")<<'\n';
+        cout<<"v1<v2: "<<(v1<v2 ? "true":"false")<<'\n';
+        cout<<"v1<=v2: "<<(v1<=v2 ? "true":"false")<<'\n';
+        cout<<"v1>v2: "<<(v1>v2 ? "true":"false")<<'\n';
+        cout<<"v1>=v2: "<<(v1>=v2 ? "true":"false")<<'\n';
+        cout<<"\n Do you want to continue? (Y/N): ";
+        cin>>choice;
+    } while(choice == 'Y' || choice == 'y');
+    cout<<"EXITING..."<<'\n';
 
     return 0;
 }

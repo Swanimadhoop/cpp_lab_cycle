@@ -27,16 +27,25 @@ complex operator +(complex a, complex b)
 }
 int main()
 {
-    int r1,i1,r2,i2;
-    cout<<"enter the real and imaginary part of first number: ";
-    cin>>r1>>i1;
-    cout<<"Enter the real and imaginary part of second number: ";
-    cin>>r2>>i2;
+    char choice;
+    do{
+        int r1,i1,r2,i2;
+        cout<<"Enter the real and imaginary part of first number: ";
+        cin>>r1>>i1;
+        cout<<"Enter the real and imaginary part of second number: ";
+        cin>>r2>>i2;
 
-    complex c1(r1,i1);
-    complex c2(r2,i2);
-    complex c3=c1+c2;
-    cout<<"The sum is ";
-    c3.display();
+        complex c1(r1,i1);
+        complex c2(r2,i2);
+        complex c3=c1+c2;
+        cout<<"The complex numbers are: \n ";
+        c1.display();
+        c2.display();
+        cout<<"The sum is ";
+        c3.display();
+        cout<<"\nDo you want to continue(y/n)?";
+        cin>>choice;
+    }while(choice== 'Y' || choice== 'y');
+    cout<<"EXITING..."<<'\n';
     return 0;
 }

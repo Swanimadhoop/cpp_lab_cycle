@@ -40,32 +40,38 @@ void swap(class_1&x, class_2&y)
 }
 int main()
 {
-    char cho
-	int p,q;
-	cout<<"Enter first number: ";
-	cin>>p;
-	cout<<"Enter second number: ";
-	cin>>q;
+    char choice;
+    do{
+        int p,q;
+        cout<<"Enter first number: ";
+        cin>>p;
+        cout<<"Enter second number: ";
+        cin>>q;
 
-	class_1 c1;
-	class_2 c2;
+        class_1 c1;
+        class_2 c2;
 
-	c1.set_value(p);
-	c2.set_value(q);
+        c1.set_value(p);
+        c2.set_value(q);
 
-	
+        
 
-	cout<<"Values before swapping: "<<'\n';
-	c1.display();
-	c2.display();
-    cout<<endl;
+        cout<<"Values before swapping: "<<'\n';
+        c1.display();
+        c2.display();
+        cout<<endl;
 
-	swap(c1,c2);
+        swap(c1,c2);
 
-	cout<<"Values after swapping: :"<<'\n';
-	c1.display();
-	c2.display();
-    cout<<endl;
+        cout<<"Values after swapping: :"<<'\n';
+        c1.display();
+        c2.display();
+        cout<<endl;
+        cout<<"\n Do you want to continue? (Y/N): ";
+        cin>>choice;
+    } while(choice == 'Y' || choice == 'y');
+    cout<<"EXITING..."<<'\n';
+
 
 	return 0;
 }
