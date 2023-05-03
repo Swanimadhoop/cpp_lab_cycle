@@ -36,22 +36,32 @@ class complex
 };
 int main()
 {
-    int r1,i1,r2,i2;
-    cout<<"enter the real and imaginary part of first number: ";
-    cin>>r1>>i1;
-    cout<<"Enter the real and imaginary part of second number: ";
-    cin>>r2>>i2;
+    char choice;
+    do{
+        int r1,r2,i2;
+        cout<<"Enter the complex number with same real and imaginary values: ";
+        cin>>r1;
+        cout<<"Enter the real and imaginary part of second number with different values: ";
+        cin>>r2>>i2;
+        cout<<endl;
 
-    complex c1;
-    complex c2(r1);
-    complex c3(r2, i2);
+        complex c1;
+        complex c2(r1);
+        complex c3(r2, i2);
 
-    complex c4=c1+c2+c3;
-
-    c1.display();
-    c2.display();
-    c3.display();
-    c4.display();
+        complex c4=c1+c2+c3;
+        cout<<"First complex number which takes no arguments: \n";
+        c1.display();
+        cout<<"Second complex number with same real and imaginary values: \n";
+        c2.display();
+        cout<<"Third complex number with different real and imaginary values: \n";
+        c3.display();
+        cout<<"Sum of the complex numbers: \n";
+        c4.display();
+        cout<<"\n Do you want to continue? (Y/N): ";
+        cin>>choice;
+    } while(choice == 'Y' || choice == 'y');
+    cout<<"EXITING..."<<'\n';
 
     return 0;
 }

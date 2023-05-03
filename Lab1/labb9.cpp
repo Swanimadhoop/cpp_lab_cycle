@@ -24,19 +24,27 @@ class stat
 int stat::count;
 int main()
 {
-        	
-	stat t1,t2;
-	t1.set_code();
-	t2.set_code();
+	char choice;
+	do{
 
-	stat::show_count;
-	stat t3;
-	t3.set_code();
-
-	stat::show_count;
-	t1.show_code();
-	t2.show_code();
-	t3.show_code();
+		int n,i;
+		cout<<"Enter the number of objects to be created: ";
+		cin>>n;
+				
+		stat t[n];
+		for(i=0;i<n;i++)
+		{
+			t[i].set_code();
+			t[i].show_code();
+		}
+		stat::show_count;
+		{
+			t[i].show_count();
+		}
+	    cout<<"\n Do you want to add more objects? (Y/N): ";
+        cin>>choice;
+    } while(choice == 'Y' || choice == 'y');
+    cout<<"EXITING..."<<'\n';
 
 	return 0;
 }

@@ -18,7 +18,7 @@ class TIME
     }
     void put_time()
     {
-        cout<<hrs<<"hours "<<min<<"minutes "<<sec<<"seconds."<<'\n';
+        cout<<hrs<<" hours "<<min<<" minutes "<<sec<<" seconds."<<'\n';
     }
     void sum (TIME t1,TIME t2)
     {
@@ -33,25 +33,30 @@ class TIME
 };
 int main()
 {
-    int h1, m1, s1, h2, m2, s2;
-    cout<<"Enter time 1 (hours,minutes,seconds):  ";
-    cin>> h1 >> m1 >> s1;
+    char choice;
+    do{
+        int h1, m1, s1, h2, m2, s2;
+        cout<<"Enter time 1 (hours,minutes,seconds):  ";
+        cin>> h1 >> m1 >> s1;
 
-    cout<<"Enter time 2 (hours,minutes,seconds):  ";
-    cin>> h2 >> m2 >> s2;
+        cout<<"Enter time 2 (hours,minutes,seconds):  ";
+        cin>> h2 >> m2 >> s2;
 
-    TIME T1, T2, T3;
-    T1.get_time(h1, m1, s1);
-    cout<<"Time 1"<<'\n';
-    T1.put_time();
+        TIME T1, T2, T3;
+        T1.get_time(h1, m1, s1);
+        cout<<"\n Time 1:"<<'\n';
+        T1.put_time();
 
-    T2.get_time(h2, m2, s2);
-    cout<<"Time 2"<<'\n';
-    T2.put_time();
+        T2.get_time(h2, m2, s2);
+        cout<<"\n Time 2:"<<'\n';
+        T2.put_time();
 
-    T3.sum(T1, T2);
-    cout<<"Time 3"<<'\n';
-    T3.put_time();
-
+        T3.sum(T1, T2);
+        cout<<"\n Resultant Time:"<<'\n';
+        T3.put_time();
+        cout<<"\nDo you want to continue(y/n)?";
+        cin>>choice;
+    }while(choice== 'Y' || choice== 'y');
+    cout<<"EXITING..."<<'\n';
     return 0;
 }

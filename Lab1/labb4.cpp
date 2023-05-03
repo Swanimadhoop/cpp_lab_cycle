@@ -57,31 +57,38 @@ void strings::compare(strings a, strings b)
 }
 int main()
 {
-    string s1,s2;
-    cout<<"Enter the first string: ";
-    cin>>s1;
-    cout<<"Enter the second string: ";
-    cin>>s2;
+    char choice;
+    do{
+        string s1,s2;
+        cout<<"Enter the first string: ";
+        cin>>s1;
+        cout<<"Enter the second string: ";
+        cin>>s2;
 
-    strings c;
+        strings c;
+        cout<<endl;
+        cout<<"First string: "<<s1;
+        cout<<endl;
+        cout<<"Second string: "<<s2;
+        cout<<endl;
 
-    cout<<"First string: "<<s1;
-    cout<<endl;
-    cout<<"Second string: "<<s2;
-    cout<<endl;
+        const char* x = s1.c_str();
+        const char* y = s2.c_str();
+        strings a(x);
+        strings b(y);
 
-    const char* x = s1.c_str();
-    const char* y = s2.c_str();
-    strings a(x);
-    strings b(y);
 
-    a.display();
-    b.display();
-    cout<<"COMPARISON"<<'\n';
-    c.compare(a,b);
-    cout<<"CONCATINATION"<<'\n';
-    c.concatenate(a,b);
-    c.display();
+        cout<<endl;
+        cout<<"COMPARISON"<<'\n';
+        c.compare(a,b);
+        cout<<endl;
+        cout<<"CONCATINATION"<<'\n';
+        c.concatenate(a,b);
+        c.display();
+        cout<<"Do you want to continue(y/n)?";
+        cin>>choice;
+    }while(choice== 'Y' || choice== 'y');
+    cout<<"EXITING THE PROGRAM..."<<'\n';
 
     return 0;
 }

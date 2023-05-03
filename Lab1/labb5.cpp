@@ -28,42 +28,48 @@ matrix::matrix(int x,int y)
     {
         p[i]=new int [d2];
     }
+    cout<<"\n Matrix constructor called."<<'\n';
 }
 matrix::~matrix()
 {
     delete p;
-    cout<<"memory has been released.";
+    cout<<"\n Memory has been released."<<'\n'<<'\n';
 }
 int main()
 {
     int m,n;
-    cout<<"enter first dimension of matrix: ";
-    cin>>m;
-    cout<<"Enter second dimension of matrix: ";
-    cin>>n;
-
-    matrix A(m,n);
-
-    cout<<"Enter the elements matrix by matrix row by row: ";
-    int value;
-
-    for(int i=0; i<m; i++)
+    char choice;
+    do
     {
-        for(int j=0;j<n;j++)
-        {
-            cin>>value;
-            A.get_element(i, j, value);
-        }
-    }
+        cout<<"Enter first dimension of matrix: ";
+        cin>>m;
+        cout<<"Enter second dimension of matrix: ";
+        cin>>n;
 
-    cout<<"********"<<'\n';
+        matrix A(m,n);
 
-    for(int i=0;i<m;i++)
-    {
-        for(int j=0;j<n;j++)
+        cout<<"\n Enter the elements matrix by matrix row by row: ";
+        int value;
+
+        for(int i=0; i<m; i++)
         {
-            cout<<A.put_element(i,j)<<" ";
+            for(int j=0;j<n;j++)
+            {
+                cin>>value;
+                A.get_element(i, j, value);
+            }
         }
-        cout<<endl;
-    }
+        cout<<"\n ****2D MATRIX****"<<'\n';
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                cout<<A.put_element(i,j)<<" ";
+            }
+            cout<<endl;
+        }
+        cout<<"\n Do you want to continue? (Y/N): ";
+        cin>>choice;
+    } while(choice == 'Y' || choice == 'y');
+    return 0;
 }

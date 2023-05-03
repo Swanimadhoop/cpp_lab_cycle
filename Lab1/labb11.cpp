@@ -40,6 +40,7 @@ void swap(class_1&x, class_2&y)
 }
 int main()
 {
+    char cho
 	int p,q;
 	cout<<"Enter first number: ";
 	cin>>p;
