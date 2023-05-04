@@ -1,167 +1,125 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-
-class Matrix
+class matrix
 {
-    private:
+private:
     int **p;
-    int r,c;
+    int r, c;
 
-    public:
-    matrix()
-    {
-        r=0;
-        c=0;
-    }
-    matrix(int x, int y)
-    {
-        r=x;
-        c=y;
-
-        p=new int *[r];
-        
-        for(int i=0;i<r;i++)
-        {
-            p[i]=new int[c];
-        }     
-    }
-    void create (int m, int n);
-    void display(void);
-    void operator+(matrix);
-    void operator*(matrix);
+public:
+    matrix(){};
+    matrix(int, int);
+    void input();
+    void operator +(matrix &x);
+    void operator *(matrix &);
+    void display();
 };
-void Matrix::create(int m, int n)
+matrix::matrix(int d1, int d2)
 {
-    int value;
-    for(int i=0;i<m;i++)
-    {
-        for(int j=0;j<n;j++)
-        {
-            cout<<"Enter element for row"<<i<<"column"<<j<<"=";
-            cin>>value;
-            p[i][j]=value;
-        }
-    }
-}
+    r = d1;
+    c = d2;
 
-void Matrix::display(void)
-{
-    for(int i=0; i<r; i++)
-    {
-        for(int j=0; j<c; j++)
-        {
-            cout<<p[i][j];
-            cout<<" ";
-        }
-        cout<<"\n";
-    }
-}
+    p = new int *[r];
 
-matrix Matrix::operator+(matrix m2)
-{
-    if(r!=m2.r || c!=m2.c)
-    {
-        Matrix m3;
-        return m3;
-    }
-    Matrix m3(r, c);
-    m3.p=new int *[r];
-    for(int i=0;i<r;i++)
-    {
-        m3.p[i]=new int[c];
-    }
-    Matrix m3(r, c);
-    for(int i=0; i<r; i++)
-    {
-        for(int j=0; j<c; j++)
-        {
-            m3.p[i][j]=p[i][j]+m2.p[i][j];
-        }
-    }
-    return m3;
-}
-
-matrix Matrix::operator*(matrix m2)
-{
-    Matrix m3(r, m2.c)
     for (int i = 0; i < r; i++)
     {
-        for (int j = 0; j < m2.c; j++)
+        p[i] = new int[c];
+    }
+}
+void matrix::input()
+{
+    cout << "Enter the values row by row : "
+         << "\n";
+
+    for (int i = 0; i < r; i++)
+    {
+        for (int j = 0; j < c; j++)
         {
-            int sum = 0;
-            for (int k = 0; k < c; k++)
-            {
-                sum += p[i][k] * m2.p[k][j];
-            }
-            m3.p[i][j] = sum;
+            cin >> p[i][j];
         }
     }
-    return m3;
+}
+void matrix::operator+(matrix &x)
+{
+    for (int i = 0; i < r; i++)
+    {
+        for (int j = 0; j < c; j++)
+        {
+            cout << p[i][j] + x.p[i][j] << " ";
+        }
+
+        cout << "\n";
+    }
+}
+void matrix::operator*(matrix &m2)
+{
+    if (c == m2.r)
+    {
+        for (int i = 0; i < r; i++)
+        {
+            for (int j = 0; j < m2.c; j++)
+            {
+                int sum = 0;
+                for (int k = 0; k < c; k++)
+                {
+                    sum += p[i][k] * m2.p[k][j];
+                }
+                cout << sum << " ";
+            }
+
+            cout << "\n";
+        }
+    }
+    else
+    {
+        cout << "the number of rows and columns do not satisfy the matrix multiplication condition ";
+    }
+}
+void matrix::display()
+{
+    cout << "the matrix : "
+         << "\n";
+
+    for (int i = 0; i < r; i++)
+    {
+        for (int j = 0; j < c; j++)
+        {
+            cout << p[i][j] << " ";
+        }
+
+        cout << "\n";
+    }
 }
 
 int main()
 {
-    int r1,r2,c1,c2;
     char choice;
+    do{
+        int d1, d2, d3, d4;
+        cout << "Enter the dimensions of MATRIX 1 : ";
+        cin >> d1 >> d2;
+        matrix m1(d1, d2);
+        m1.input();
+        m1.display();
 
-    cout<<"Enter the no of rows and columns of MATRIX 1: ";
-    cin>>r1>>c1;
-
-    Matrix M1(r1,c1);
-    M1.create(r1,c1);
-    M1.display();
-    
-
-    cout<<"Enter the no of rows and columns of MATRIX 2: ";
-    cin>>r2>>c2;
-
-    Matrix M2(r2,c2);
-    M2.create(r2,c2);
-    M2.display();
-
-    do
-    {
-        cout<<"*********MATRIX OPERATIONS*********"<<'\n';
-        cout<<"1.Matrix Addition"<<"\n";
-        cout<<"2.Matrix Multiplication"<<"\n";
-        cout<<"Enter your choice: ";
+        cout << "Enter the dimensions of MATRIX 2 : ";
+        cin >> d3 >> d4;
+        matrix m2(d3, d4);
+        m2.input();
+        m2.display();
+        
+        cout << "Matrix Addition : "
+            << "\n";
+        m1+m2;
+        
+        cout << "\nMatrix Multiplication : "
+            << "\n";
+        m1*m2;
+        cout<<"\n Do you want to continue? (Y/N): ";
         cin>>choice;
-
-        switch(choice)
-        {
-            case '1':
-            if(r1==r2 && c1==c2)
-            {
-                Matrix M3(r1, c1);
-                M3 = M1+M2;
-                cout<<"The sum of the two matrices: "<<"\n";
-                M3.display();
-            }
-            else
-            {
-                cout<<"Addition cannot be performed on these two matrices";
-            }
-            break;
-            case '2':
-            if (c1 == r2)
-            {
-                Matrix M4(r1, c2);
-                M4 = M1 * M2;
-                cout<<"The product of the two matrices is "<<'\n';
-                M4.display();
-            }
-            else
-            {
-                cout<<"multiplication can not be performed on these two matrices."<<'\n';
-            }
-            break;
-            default:
-            cout<<"\n Do you want to continue? (Y/N): ";
-            cin>>choice;
-        }
     } while(choice == 'Y' || choice == 'y');
     cout<<"EXITING..."<<'\n';
-        return 0;
-}
-    
 
+
+    return 0;
+}

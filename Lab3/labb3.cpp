@@ -15,11 +15,13 @@ double double_division(float x, float y)
 
 int main()
 {
+    char choice;
     float a;
     float b;
     double c;
+    do{
 
-    cout<<"enter the values of a and b: ";
+    cout<<"Enter the values of a and b: ";
     cin>>a>>b;
 
     try
@@ -33,6 +35,10 @@ int main()
     {
         cout<<e.what()<<'\n';
     }
+    cout<<"\nDo you want to continue? (Y/N): ";
+    cin>>choice;
+} while(choice == 'Y' || choice == 'y');
+cout<<"EXITING..."<<'\n';
 return 0;    
 
 }

@@ -29,18 +29,23 @@ class calculator
 };
 int main()
 {
+    char choice;
     int i1,i2;
     float f1,f2;
+    do{
+        cout<<"Enter two integer value to do operations: ";
+        cin>>i1>>i2;
+        cout<<"Enter two floating point values to do operations: ";
+        cin>>f1>>f2;
+        calculator<int>icalc(i1,i2);
+        calculator<float>fcalc(f1,f2);
 
-    cout<<"Enter two integer value to do operations: ";
-    cin>>i1>>i2;
-    cout<<"Enter two floating point values to do operations: ";
-    cin>>f1>>f2;
-    calculator<int>icalc(i1,i2);
-    calculator<float>fcalc(f1,f2);
-
-    icalc.display_results();
-    fcalc.display_results();
+        icalc.display_results();
+        fcalc.display_results();
+        cout<<"\nDo you want to continue? (Y/N): ";
+        cin>>choice;
+    } while(choice == 'Y' || choice == 'y');
+    cout<<"EXITING..."<<'\n';
 
     return 0;
 }
