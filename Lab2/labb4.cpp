@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-class matrix
+class Matrix
 {
     private:
     int **p;
@@ -30,7 +30,7 @@ class matrix
     void operator+(matrix);
     void operator*(matrix);
 };
-void matrix::create(int m, int n)
+void Matrix::create(int m, int n)
 {
     int value;
     for(int i=0;i<m;i++)
@@ -44,7 +44,7 @@ void matrix::create(int m, int n)
     }
 }
 
-void matrix::display(void)
+void Matrix::display(void)
 {
     for(int i=0; i<r; i++)
     {
@@ -57,9 +57,20 @@ void matrix::display(void)
     }
 }
 
-matrix matrix::operator+(matrix m2)
+matrix Matrix::operator+(matrix m2)
 {
-    matrix m3(r, c);
+    if(r!=m2.r || c!=m2.c)
+    {
+        Matrix m3;
+        return m3;
+    }
+    Matrix m3(r, c);
+    m3.p=new int *[r];
+    for(int i=0;i<r;i++)
+    {
+        m3.p[i]=new int[c];
+    }
+    Matrix m3(r, c);
     for(int i=0; i<r; i++)
     {
         for(int j=0; j<c; j++)
@@ -70,9 +81,9 @@ matrix matrix::operator+(matrix m2)
     return m3;
 }
 
-matrix matrix::operator*(matrix m2)
+matrix Matrix::operator*(matrix m2)
 {
-    matrix m3(r, m2.c)
+    Matrix m3(r, m2.c)
     for (int i = 0; i < r; i++)
     {
         for (int j = 0; j < m2.c; j++)
@@ -96,7 +107,7 @@ int main()
     cout<<"Enter the no of rows and columns of MATRIX 1: ";
     cin>>r1>>c1;
 
-    matrix M1(r1,c1);
+    Matrix M1(r1,c1);
     M1.create(r1,c1);
     M1.display();
     
@@ -104,7 +115,7 @@ int main()
     cout<<"Enter the no of rows and columns of MATRIX 2: ";
     cin>>r2>>c2;
 
-    matrix M2(r2,c2);
+    Matrix M2(r2,c2);
     M2.create(r2,c2);
     M2.display();
 
@@ -118,11 +129,11 @@ int main()
 
         switch(choice)
         {
-            case 1:
+            case '1':
             if(r1==r2 && c1==c2)
             {
-                matrix M3(r1, c1);
-                M3=M1+M2;
+                Matrix M3(r1, c1);
+                M3 = M1+M2;
                 cout<<"The sum of the two matrices: "<<"\n";
                 M3.display();
             }
@@ -131,17 +142,17 @@ int main()
                 cout<<"Addition cannot be performed on these two matrices";
             }
             break;
-            case 2:
+            case '2':
             if (c1 == r2)
             {
-                matrix m4(r1, c2);
+                Matrix M4(r1, c2);
                 M4 = M1 * M2;
                 cout<<"The product of the two matrices is "<<'\n';
                 M4.display();
             }
             else
             {
-                cout<<"multiplication can not be performed on these two matrices.<<'\n';"
+                cout<<"multiplication can not be performed on these two matrices."<<'\n';
             }
             break;
             default:

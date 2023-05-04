@@ -47,20 +47,25 @@ class gamma : public beta, public alpha
     }
     void show_mn(void)
     {
-        cout<<"m= "<<m<<", n= "<<n<<'\n'; 
+        cout<<"m= "<<m<<" and "<<"n="<<n<<'\n';; 
     }
 };
 int main()
 {
+    char choice;
     int n1, n2, n3, n4;
-    
-    cout<<"Enter the four numbers: ";
-    cin>>n1>>n2>>n3>>n4;
+    do{
+        cout<<"Enter the four numbers: ";
+        cin>>n1>>n2>>n3>>n4;
 
-    gamma G(n1, n2, n3, n4);
-    G.show_x();
-    G.show_y();
-    G.show_mn();
+        gamma G(n1, n2, n3, n4);
+        G.show_x();
+        G.show_y();
+        G.show_mn();
+        cout<<"\n Do you want to continue? (Y/N): ";
+        cin>>choice;
+    } while(choice == 'Y' || choice == 'y');
+    cout<<"EXITING..."<<'\n';
 
     return 0;
 }

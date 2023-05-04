@@ -71,21 +71,27 @@ class result: public marks, public sports, public person
 
 int main()
 {
+    char choice;
     string n;
     int r, p, q, s;
-    cout<<"Enter name of the student: ";
-    cin>>n;
-    cout<<"Enter roll number of the student: ";
-    cin>>r;
-    cout<<"Enter marks of two subjects: ";
-    cin>>p>>q;
-    cout<<"Enter sports score: ";
-    cin>>s;
+    do{
+        cout<<"Enter name of the student: ";
+        cin>>n;
+        cout<<"Enter roll number of the student: ";
+        cin>>r;
+        cout<<"Enter marks of two subjects: ";
+        cin>>p>>q;
+        cout<<"Enter sports score: ";
+        cin>>s;
 
-    cout<<'\n'<<"***********RESULT*************"<<'\n';
+        cout<<'\n'<<"***********RESULT*************"<<'\n';
 
-    result obj(n,r,p,q,s);
-    obj.display_result();
+        result obj(n,r,p,q,s);
+        obj.display_result();
+        cout<<"\nDo you want to continue? (Y/N): ";
+        cin>>choice;
+    } while(choice == 'Y' || choice == 'y');
+    cout<<"EXITING..."<<'\n';
 
     return 0;
 }

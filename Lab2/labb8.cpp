@@ -79,48 +79,63 @@ int main()
     shape *shape;
     int choice;
     double a, b;
-
-    cout << "Choose a shape to calculate area:" << endl;
-    cout << "1. Circle" << endl;
-    cout << "2. Square" << endl;
-    cout << "3. Ellipse" << endl;
-    cout << "4. Rectangle" << endl;
-    cin >> choice;
-
-    switch(choice)
+    
+    do
     {
-        case 1:
-        cout << "Enter the radius of the circle: ";
-            cin >> a;
-            shape = new circle(a);
-            break;
-        case 2:
-            cout << "Enter the length of a side of the square: ";
-            cin >> a;
-            shape = new square(a);
-            break;
-        case 3:
-            cout << "Enter the semi-major axis of the ellipse: ";
-            cin >> a;
-            cout << "Enter the semi-minor axis of the ellipse: ";
-            cin >> b;
-            shape = new ellipse(a, b);
-            break;
-        case 4:
-            cout << "Enter the length of the rectangle: ";
-            cin >> a;
-            cout << "Enter the width of the rectangle: ";
-            cin >> b;
-            shape = new rectangle(a, b);
-            break;
-        default:
-            cout << "Invalid choice." << endl;
-            return 0;
-    }
+        cout << "Choose a shape to calculate area:" << endl;
+        cout << "1. Circle" << endl;
+        cout << "2. Square" << endl;
+        cout << "3. Ellipse" << endl;
+        cout << "4. Rectangle" << endl;
+        cout << "5. Exit"<<endl;
+        cin >> choice;
 
-    cout << "The area of the shape is " << shape->area() << endl;
+        switch(choice)
+        {
+            case 1:
+            cout << "Enter the radius of the circle: ";
+                cin >> a;
+                shape = new circle(a);
+                cout<<endl;
+                cout << "The area of the shape is " << shape->area() << endl;
+                cout<<endl;
+                break;
+            case 2:
+                cout << "Enter the length of a side of the square: ";
+                cin >> a;
+                shape = new square(a);
+                cout<<endl;
+                cout << "The area of the shape is " << shape->area() << endl;
+                cout<<endl;
+                break;
+            case 3:
+                cout << "Enter the semi-major axis of the ellipse: ";
+                cin >> a;
+                cout << "Enter the semi-minor axis of the ellipse: ";
+                cin >> b;
+                shape = new ellipse(a, b);
+                cout<<endl;
+                cout << "The area of the shape is " << shape->area() << endl;
+                cout<<endl;
+                break;
+            case 4:
+                cout << "Enter the length of the rectangle: ";
+                cin >> a;
+                cout << "Enter the width of the rectangle: ";
+                cin >> b;
+                shape = new rectangle(a, b);
+                cout<<endl;
+                cout << "The area of the shape is " << shape->area() << endl;
+                cout<<endl;
+                break;
+            default:
+                cout<<endl;
+                cout << "EXIT." << endl;
+                cout<<endl;
+                break;
+        }
+    }
+    while(choice != 5);
 
     return 0;
 }
-
-

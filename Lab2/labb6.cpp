@@ -16,7 +16,7 @@ void student::get_no(int a)
 }
 void student::put_no(void)
 {
-    cout<<"Roll no= "<<roll_no<<'\n';
+    cout<<"Roll no = "<<roll_no<<'\n';
 }
 class test:virtual public student
 {
@@ -66,27 +66,37 @@ class result:public sports, public test
 void result::display(void)
 {
     total=sub_1+sub_2+score;
-    cout<<"Total= "<<total<<'\n';
+    cout<<"Total = "<<total<<'\n'<<'\n';
 }
 int main()
 {
-    int r,p,q,s;
-    cout<<"Enter roll number: ";
-    cin>>r;
-    cout<<"Enter marks scored in test(subject 1&2): ";
-    cin>>p>>q;
-    cout<<"enter marks in sports: ";
-    cin>>s;
+    int r,p,q,s,n;
+    string m;
+    
+    cout<<"Enter the number of students: ";
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        cout<<"Enter name of the student: ";
+        cin>>m;
+        cout<<"Enter roll number: ";
+        cin>>r;
+        cout<<"Enter marks scored in test(subject 1&2): ";
+        cin>>p>>q;
+        cout<<"enter marks in sports: ";
+        cin>>s;
 
-    result r1;
+        result r1;
 
-    cout<<'\n'<<"**********RESULT*********"<<'\n';
-    r1.get_no(r);
-    r1.get_marks(p,q);
-    r1.get_score(s);
-    r1.put_no();
-    r1.put_marks();
-    r1.put_score();
-    r1.display();
+        cout<<'\n'<<"**********RESULT*********"<<'\n';
+        r1.get_no(r);
+        r1.get_marks(p,q);
+        r1.get_score(s);
+        r1.put_no();
+        r1.put_marks();
+        r1.put_score();
+        r1.display();
+        
+    }
     return 0;
 }
